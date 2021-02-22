@@ -112,14 +112,31 @@
 
             </tr>
             TABLE;
-            echo <<<TABLE
-            <tr>
-                <td class="table-text">placeholder</th>
-                <td class="table-text">1</th>
-                <td class="table-text">3</th>
-                <td class="table-text"><button>$use</button><button>$undo</button></th>
-            </tr>
-            TABLE;
+
+            $rows = [
+                ['tile'=>'placeholder', 'used'=>1, 'total'=>3],
+                ['tile'=>'placeholder', 'used'=>2, 'total'=>3],
+                ['tile'=>'placeholder', 'used'=>2, 'total'=>2],
+                ['tile'=>'placeholder', 'used'=>1, 'total'=>4],
+                ['tile'=>'placeholder', 'used'=>3, 'total'=>4]
+            ];
+
+            foreach($rows as $row)
+            {
+                $tile=$row['tile'];
+                $used=$row['used'];
+                $total=$row['total'];
+                echo <<<TABLE
+                    <tr>
+                        <td class="table-text">$tile</th>
+                        <td class="table-text">$used</th>
+                        <td class="table-text">$total</th>
+                        <td class="table-text"><button>$use</button><button>$undo</button></th>
+                    </tr>
+                TABLE;
+
+            }
+
             echo "</table>";
             //var_dump($this->TableHeaders);
 
